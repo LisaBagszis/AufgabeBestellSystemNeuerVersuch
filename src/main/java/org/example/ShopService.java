@@ -31,7 +31,7 @@ public class ShopService {
         System.out.println(orderRepo.get(id));
     }
 
-    public void addOrder(List<String> productIds) {
+    public Order addOrder(List<String> productIds) {
        List<Product> allProducts = new ArrayList<>();
 
        for (String productId: productIds){
@@ -45,5 +45,6 @@ public class ShopService {
        Order order = new Order(UUID.randomUUID().toString(), allProducts);
        orderRepo.add(order);
 
+        return order;
     }
 }
